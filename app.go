@@ -2,29 +2,25 @@ package main
 
 import "fmt"
 
-func main() {
-	i := isTest(2)
-
-	switch {
-	case i == 1:
-		fmt.Println("равно 1")
-	case i == 2:
-		fmt.Println("равно 2")
-	case i == 3:
-		fmt.Println("равно 3")
-	default:
-		fmt.Println(fmt.Sprintf("равно %x", i))
-	}
+type Point struct {
+	// регистр влияет на область видимости
+	X int
+	Y int
 }
 
-func isTest(x int) int {
-	if x == 1 {
-		return 1
-	} else if x == 2 {
-		return 2
-	} else if x == 3 {
-		return 3
-	} else {
-		return 4
+func main() {
+	structs()
+}
+
+func structs() {
+	p1 := Point{
+		//при оформлении данных в столбец, последний элемент должен быть с запятой, если в строку то нет.
+		X: 1,
+		Y: 2,
 	}
+
+	fmt.Println(p1.Y)
+	p1.Y = p1.X + 4
+
+	fmt.Println(p1.Y)
 }
